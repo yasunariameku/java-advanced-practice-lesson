@@ -6,9 +6,27 @@
     */
 
     // 入力値を取得
+    //String userIdStr = request.getParameter("userId");
+    //String userNameStr = request.getParameter("userName");
+    //String age = request.getParameter("age");
+    String btn = request.getParameter("btn");
+    
 
     // リセットボタンを押した場合、
+   
+    if (request.getParameter("btn") == null) {
+    	btn = "";
+    	
+
+    	//セッションクリア
+        
+    }
     // セッションを破棄
+    
+    if ("reset".equals(request.getParameter("btn"))){
+    	session.invalidate();
+    }
+    
 
 %>
 <!DOCTYPE html>

@@ -8,14 +8,40 @@
     */
 
     // todo:入力値を取得
+    String userIdStr = request.getParameter("userId");
+    String userNameStr = request.getParameter("userName");
+    String ageStr = request.getParameter("age");
+    int age = Integer.parseInt(ageStr);
+    
+    /* if (session.getAttribute("userId") == null ){
+    	session.setAttribute("userId", userIdStr);
+    }
+    
+    if (session.getAttribute("userName") == null){
+    	session.setAttribute("userName", userNameStr);
+    }
+    
+    if (session.getAttribute("age") == null) {
+    	session.setAttribute("age", age);
+    } */
 
     // todo:userオブジェクト作成
     // 入力値を作成したオブジェクトのフィールドにセット
-
+    //User User = new User(userIdStr, userNameStr, age);
+    
+    //String result = User.returnUserInfo();
+    
+    /*if(session.getAttribute("result") == null) {
+   	session.setAttribute("result", result);
+    }*/
+    
+    //out.println(result);
+    
+    
     // セッションから現在のユーザー情報を取得
     // 現在は変数のみ定義。
     // todo:セッションから値を取得するように修正。
-    User[] users = null;
+    User[] users = (User[])session.getAttribute("users[]");
 
     // セッションに値が無ければ、配列を作成
     if (users == null) {
@@ -30,7 +56,7 @@
         if (users[count] == null) {
             // todo:ユーザーを登録していない添え字の所に
             // 入力したユーザーを登録する
-
+			users[count] = new User(userIdStr,userNameStr,age);
 
             // 登録できた際のメッセージ
             result = "ユーザーを登録しました";
@@ -39,6 +65,7 @@
     }
 
     // todo:セッションに現在のユーザー情報を保存
+    session.setAttribute("users[]", users);
 
 %>
 <!DOCTYPE html>
@@ -90,7 +117,7 @@ a.button {
                 // todo:
                 // 現在は変数のみ定義している。
                 // Userクラスの情報取得用メソッドを呼んだ値をセットするように修正。
-                String msg = "";
+                String msg = tempUser.returnUserInfo();
 
                 // ユーザー情報表示
                 out.println(msg);
