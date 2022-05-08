@@ -13,12 +13,8 @@
     
 
     // リセットボタンを押した場合、
-   
     if (request.getParameter("btn") == null) {
     	btn = "";
-    	
-
-    	//セッションクリア
         
     }
     // セッションを破棄
