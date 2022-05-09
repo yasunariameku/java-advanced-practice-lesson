@@ -5,23 +5,9 @@
 <%@ page import="app.GameApp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-    request.setCharacterEncoding("UTF-8");
-    String name = request.getParameter("name");
-
-    String result = "未実施";
     
-    if (name != null && !name.isEmpty()) {
-        // このif分の中に、GameAppクラスを使った下記処理を記載してください。
-        // ・GameAppクラスのオブジェクトを作成し、itemフィールドに "何か" という文字列をセット
-        // ・GameAppオブジェクトのstartメソッドを呼び、戻り値を変数resultへ代入する
-        //   startメソッドの引数には、ユーザ名テキストボックスの入力を渡す
-         
-        GameApp GameApp1 =  new GameApp("何か");
-        
-        result = GameApp1.start(name);
-        
-    }
 %>
 <!DOCTYPE html>
 <html>
@@ -47,13 +33,15 @@ body {
   <h1>Java応用 - 演習問題1</h1>
 
   <h2>ゲームアプリ実行ページ</h2>
+ 	
+  <c:if test="${not empty result }">
+  	<div class="result">
+  	<h3>アプリの実行結果</h3>
+    <p>"${requestScope.result}"</p>
+  	</div>
+  </c:if>
 
-  <div class="result">
-    <h3>アプリの実行結果</h3>
-    <p><%=result%></p>
-  </div>
-
-  <form action="appStart.jsp" method="post">
+  <form action="StartAppServlet" method="post">
     <label>ユーザ名：</label>
     <input type="text" name="name">
     <br>

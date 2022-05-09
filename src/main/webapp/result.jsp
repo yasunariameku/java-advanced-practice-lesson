@@ -16,7 +16,7 @@
 	// セッションから現在のユーザー情報を取得
 	// 現在は変数のみ定義。
 	// todo:セッションから値を取得するように修正。
-	User[] users = (User[]) session.getAttribute("users[]");
+	User[] users = (User[]) session.getAttribute("users");
 	// ↑ここのクラスがなぜ配列の形になっているのかがわからない。
 	// ただの配列をつくっているだけなのか？
 	// sessionでとってきているのはどこの値なのか？
