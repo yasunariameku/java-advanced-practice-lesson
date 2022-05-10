@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import app.CardGameApp;
 import app.GameApp;
+import app.Utility;
 
 /**
  * Servlet implementation class StartAppServlet
@@ -47,19 +49,27 @@ public class StartAppServlet extends HttpServlet {
        
 
 	    String name = request.getParameter("name");
+	    String item = request.getParameter("item");
 	    //System.out.println(name);
 
 	    String result = "未実施";
 	    
-	    if (name != null && !name.isEmpty()) {
+	    if (!(Utility.isNullOrEmpty(name))) {
 	        // このif分の中に、GameAppクラスを使った下記処理を記載してください。
 	        // ・GameAppクラスのオブジェクトを作成し、itemフィールドに "何か" という文字列をセット
 	        // ・GameAppオブジェクトのstartメソッドを呼び、戻り値を変数resultへ代入する
 	        //   startメソッドの引数には、ユーザ名テキストボックスの入力を渡す
-	         
-	        GameApp GameApp1 =  new GameApp("何か");
+	    	
+	    	//
+	    	GameApp p =  new CardGameApp(item);
+	    	
+	    	if (("トランプ").equals(item)) {
+	    		p.item =  item;
+	    	}else {
+	    		p.item =  ("何か");
+	    	}
 	        
-	        result = GameApp1.start(name);
+	        result = p.start(name);
 	        
 	        request.setAttribute("result", result);
 	        

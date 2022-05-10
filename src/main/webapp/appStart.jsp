@@ -37,13 +37,17 @@ body {
   <c:if test="${not empty result }">
   	<div class="result">
   	<h3>アプリの実行結果</h3>
-    <p>"${requestScope.result}"</p>
+    <p>${requestScope.result}</p>
   	</div>
   </c:if>
 
   <form action="StartAppServlet" method="post">
     <label>ユーザ名：</label>
     <input type="text" name="name">
+    <br>
+    <label>アプリ：</label>
+    <input type="radio" name="item" value="トランプ" checked>トランプ
+	<input type="radio" name="item" value="game">ゲーム
     <br>
     <button type="submit">実行</button>
   </form>
