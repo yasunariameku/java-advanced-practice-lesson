@@ -30,7 +30,7 @@ body {
 </head>
 <body>
 
-  <h1>Java応用 - 演習問題1</h1>
+  <h1>Java応用 - 演習問題4</h1>
 
   <h2>ゲームアプリ実行ページ</h2>
  	
@@ -47,7 +47,9 @@ body {
     <br>
     <label>アプリ：</label>
     <input type="radio" name="item" value="トランプ" checked>トランプ
-	<input type="radio" name="item" value="game">ゲーム
+	<input type="radio" name="item" value="ダーツ">ゲーム
+	<input type="radio" name="item" value="時計">時計
+	<input type="radio" name="item" value="その他">その他
     <br>
     <button type="submit">実行</button>
   </form>
