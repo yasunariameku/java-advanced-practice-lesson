@@ -47,7 +47,7 @@ body {
     <br>
     <label>アプリ：</label>
     <input type="radio" name="item" value="トランプ" checked>トランプ
-	<input type="radio" name="item" value="ダーツ">ゲーム
+	<input type="radio" name="item" value="ダーツ">ダーツ
 	<input type="radio" name="item" value="時計">時計
 	<input type="radio" name="item" value="その他">その他
     <br>

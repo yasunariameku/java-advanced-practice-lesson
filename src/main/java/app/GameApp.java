@@ -1,7 +1,7 @@
 package app;
 
-public class GameApp {
-	//フィールド名
+public abstract class  GameApp implements App {
+		//フィールド名
 		public String item;
 		
 		//デフォルトコンストラクタ
@@ -12,6 +12,9 @@ public class GameApp {
 		public GameApp( String item) {
 			this.item = item;
 	    }
+		
+		//抽象化メソッド
+		public abstract String play();
 		
 		//メソッド
 		public String start(String name ) {

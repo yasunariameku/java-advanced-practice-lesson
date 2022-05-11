@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import app.CardGameApp;
-import app.GameApp;
+import app.ClockApp;
+import app.DartsGameApp;
 import app.Utility;
 
 /**
@@ -60,16 +61,28 @@ public class StartAppServlet extends HttpServlet {
 	        // ・GameAppオブジェクトのstartメソッドを呼び、戻り値を変数resultへ代入する
 	        //   startメソッドの引数には、ユーザ名テキストボックスの入力を渡す
 	    	
-	    	//
-	    	GameApp p =  new CardGameApp(item);
+	    	if (("時計").equals(item)) {
+	    		
+	    		ClockApp c = new ClockApp();
+	    		
+	    		result = c.start(name);
+	    		
+	    	} else if (("トランプ").equals(item)) {
+	    		CardGameApp p =  new CardGameApp(item);
+	    		//p.item =  item;
+	    		
+	    		result = p.start(name) + p.play();
+	    		
+	    		
+	    	}else if (("ダーツ").equals(item)) {
+	    		DartsGameApp p =  new DartsGameApp(item);
+	    		//p.item =  item;
+	    
+	    		result = p.start(name) + p.play();
 	    	
-	    	if (("トランプ").equals(item)) {
-	    		p.item =  item;
 	    	}else {
-	    		p.item =  ("何か");
+	    		result = "アプリの実行に失敗しました。";
 	    	}
-	        
-	        result = p.start(name);
 	        
 	        request.setAttribute("result", result);
 	        
