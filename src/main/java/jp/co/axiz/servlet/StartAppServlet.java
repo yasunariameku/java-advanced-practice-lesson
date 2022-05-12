@@ -62,24 +62,26 @@ public class StartAppServlet extends HttpServlet {
 	        //   startメソッドの引数には、ユーザ名テキストボックスの入力を渡す
 	    	
 	    	if (("時計").equals(item)) {
-	    		
+	    		//ClockAppのインスタンス生成
 	    		ClockApp c = new ClockApp();
 	    		
 	    		result = c.start(name);
 	    		
 	    	} else if (("トランプ").equals(item)) {
+	    		//CardGameAppのインスタンス生成
 	    		CardGameApp p =  new CardGameApp(item);
-	    		//p.item =  item;
 	    		
 	    		result = p.start(name);
+	    		
 	    		request.setAttribute("playTime", p.getPlayTime());
 	    
 	    		
 	    	}else if (("ダーツ").equals(item)) {
+	    		//DartsGameAppのインスタンス生成
 	    		DartsGameApp p =  new DartsGameApp(item);
-	    		//p.item =  item;
-	    
+	    		
 	    		result = p.start(name);
+	    		
 	    		request.setAttribute("playTime", p.getPlayTime());
 	    	
 	    	}else {

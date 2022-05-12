@@ -1,4 +1,4 @@
-<%@ page import="entity.User"%>
+<%@ page import="jp.co.axiz.app.User;"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
