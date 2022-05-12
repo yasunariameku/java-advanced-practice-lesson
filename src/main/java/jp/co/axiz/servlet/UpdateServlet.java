@@ -1,4 +1,4 @@
-package app;
+package jp.co.axiz.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import jp.co.axiz.entity.Car;
 
 /**
  * Servlet implementation class StartAppServlet
