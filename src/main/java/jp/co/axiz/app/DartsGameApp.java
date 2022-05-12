@@ -1,4 +1,4 @@
-package app;
+package jp.co.axiz.app;
 
 public class DartsGameApp extends GameApp  {
 	
@@ -8,12 +8,18 @@ public class DartsGameApp extends GameApp  {
 	
 	//引数ありコンストラクタ
 	public DartsGameApp(String item) {
-		this.item = item;
+		setItem(item);
+		setPlayTime(10);
     }
 	
-	public String play() {
+	protected  String play() {
 		return "10回投げて合計点を競います。";
 		
+	}
+	
+	public String start(String name ) {
+		String A = name + "さんとダーツでゲームを開始します" + play();
+		 return A;
 	}
 	
 	

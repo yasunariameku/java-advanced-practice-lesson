@@ -1,20 +1,39 @@
-package app;
+package jp.co.axiz.app;
 
 public abstract class  GameApp implements App {
 		//フィールド名
-		public String item;
+		private String item;
+		private int playTime;
 		
 		//デフォルトコンストラクタ
 		public GameApp() {
 	    }
-		
+
 		//コンストラクタ
 		public GameApp( String item) {
 			this.item = item;
 	    }
 		
+		//itemのアクセサ
+		public String getItem() {
+			return item;
+		}
+
+		public void setItem(String item) {
+			this.item = item;
+		}
+		
+		//playTimeのアクセサ
+		public int getPlayTime() {
+			return playTime;
+		}
+
+		public void setPlayTime(int playTime) {
+			this.playTime = playTime;
+		}
+		
 		//抽象化メソッド
-		public abstract String play();
+		protected abstract String play();
 		
 		//メソッド
 		public String start(String name ) {

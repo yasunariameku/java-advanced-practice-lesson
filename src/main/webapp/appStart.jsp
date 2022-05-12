@@ -2,7 +2,7 @@
   //GameAppクラス作成後、下記の記述が必要です。
   <%@ page import="app.GameApp"%>
 --%>
-<%@ page import="app.GameApp"%>
+<%@ page import="jp.co.axiz.app.GameApp"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
   pageEncoding="UTF-8"%>
   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -38,6 +38,7 @@ body {
   	<div class="result">
   	<h3>アプリの実行結果</h3>
     <p>${requestScope.result}</p>
+    <P>実行時間：${requestScope.playTime}分</p>
   	</div>
   </c:if>
 
