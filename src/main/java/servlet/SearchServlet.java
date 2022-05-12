@@ -39,10 +39,34 @@ public class SearchServlet extends HttpServlet {
         Dictionary dictionary = new Dictionary();
         HashMap<String, String> dictionaryInfo = dictionary.getDictionaryInfo();
 
-
+        String result = "";
+        String japanese = "";
         /*
          * ※検索ボタンを押したときに必要な処理を実装してください
          */
+        
+        if (!(english.isEmpty())|| (english.equals("null"))) {
+        	//　DictionaryクラスのHashMapから、
+        	// 入力値をKeyとして対応するValueがあるか確認する
+        	if (dictionaryInfo.containsKey(english)) {
+        		
+        		//確認用出力
+        		System.out.print(english);
+        		
+        		//英語のキーから日本語を呼び出す。
+        		japanese = dictionaryInfo.get(english);
+        		
+        		//英語と日本語を出力用の形にする。
+        		result = "英語：" + english + "、日本語：" + japanese;
+        		
+        		//requestにセットする。
+        		request.setAttribute("result", result);
+        		
+        	} else {
+        		result = "見つかりませんでした";
+        		request.setAttribute("result", result);
+        	}
+        }
 
 
 

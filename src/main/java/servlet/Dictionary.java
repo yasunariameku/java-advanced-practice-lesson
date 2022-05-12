@@ -25,6 +25,12 @@ public class Dictionary {
     	//英語をKey、日本語をValueとする
     	//例）dictionaryInfo.put("dog", "犬");
     	//※セットする値はテキストを参照してください
+    	dictionaryInfo.put("apple", "りんご");
+    	dictionaryInfo.put("orange", "みかん");
+    	dictionaryInfo.put("peach", "もも");
+    	dictionaryInfo.put("grape", "ぶどう");
+    	dictionaryInfo.put("pear", "なし");
+
 
 
 
