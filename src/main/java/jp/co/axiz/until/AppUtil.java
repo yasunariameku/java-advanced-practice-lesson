@@ -49,15 +49,20 @@ public class AppUtil {
 	}
 	
 	public static String getAppName(Object app) {
-		if (app instanceof CardGameApp /*引数で受け取ったオブジェクトの型がCardGameApp「ゲーム:カード」 */) {
-			return "「ゲーム:カード」";
-					
-		}else if(app instanceof DartsGameApp /* 引数で受け取ったオブジェクトの型がDartsGameApp「ゲーム:ダーツ」*/) {
-			return "「ゲーム:ダーツ」";
-					
-		}else  /* 引数で受け取ったオブジェクトの型がClockApp「時計」 */ {
-			return "「時計」";
-		}
-	}
+        String appName = "";
+
+        if (isGameApp(app)) {
+            appName = "ゲーム:";
+            if (isCardGameApp(app)) {
+                appName += "カード";
+            } else if (isDartsGameApp(app)) {
+                appName += "ダーツ";
+            }
+        } else if (isCloclApp(app)) {
+            appName = "時計";
+        }
+
+        return appName;
+    }
 }
 

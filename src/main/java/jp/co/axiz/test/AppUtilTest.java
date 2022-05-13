@@ -6,141 +6,195 @@ import org.junit.jupiter.api.Test;
 
 import jp.co.axiz.app.App;
 import jp.co.axiz.app.CardGameApp;
+import jp.co.axiz.app.ClockApp;
 import jp.co.axiz.app.DartsGameApp;
 import jp.co.axiz.until.AppUtil;
 
 class AppUtilTest {
 	
-	App app = new DartsGameApp();
 	//App appにはどうやって値を入れたらいいのか？何を取って来るのか？
 	 //任意に値を入れたらいい。
+	
+	// isGameApp入力データパターン
 
 	@Test
-	public void isGameApp判定() {
+	public void isGameApp判定1() {
+		
+		App app = new CardGameApp();
+		
+        boolean result = AppUtil.isGameApp(app);
+        boolean expected = true;
+        
+        assertEquals(expected, result);
+    }
+	
+	@Test
+	public void isGameApp判定2() {
+		
+		App app = new DartsGameApp();
+		
+        boolean result = AppUtil.isGameApp(app);
+        boolean expected = true;
+        
+        assertEquals(expected, result);
+    }
+	
+	@Test
+	public void isGameApp判定3() {
+		
+		App app = new ClockApp();
+		
         boolean result = AppUtil.isGameApp(app);
         boolean expected = false;
         
-        if (app instanceof CardGameApp) {
-        	
-        	//appがCardGameAppだった時
-        	expected = true; // 想定される結果
-        	
-        }else if (app instanceof DartsGameApp) {
-        	
-        	//appがDartsGameAppだった時
-        	expected = true; // 想定される結果
-        	
-        }else {
-        	
-        	//appがClockAppだった時
-        	expected = false; // 想定される結果
-        }
-        
-
-        // 想定される結果と処理結果とを比較
         assertEquals(expected, result);
     }
+        
+	
+	
+	//isDartsGameApp入力データパターン
 	
 	@Test
-	public void isCardGameApp判定() {
+	public void isCardGameApp判定1() {
+		
+		App app = new CardGameApp();
+		
+        boolean result = AppUtil.isCardGameApp(app);
+        boolean expected = true;
+        
+        assertEquals(expected, result);
+	}
+	
+	@Test
+	public void isCardGameApp判定2() {
+		
+		App app = new DartsGameApp();
+		
         boolean result = AppUtil.isCardGameApp(app);
         boolean expected = false;
         
-        if (app instanceof CardGameApp) {
-        	
-        	//appがCardGameAppだった時
-        	expected = true; // 想定される結果
-        	
-        }else if (app instanceof DartsGameApp) {
-        	
-        	//appがDartsGameAppだった時
-        	expected = false; // 想定される結果
-        	
-        }else {
-        	
-        	//appがClockAppだった時
-        	expected = false; // 想定される結果
-        }
+        assertEquals(expected, result);
+	}
+	
+	
+	@Test
+	public void isCardGameApp判定3() {
+		
+		App app = new ClockApp();
+		
+        boolean result = AppUtil.isCardGameApp(app);
+        boolean expected = false;
         
-
-        // 想定される結果と処理結果とを比較
+        assertEquals(expected, result);
+	}
+	
+	//isDartsGameApp入力データパターン
+	
+	@Test
+	public void isDartsGameApp判定1() {
+		
+		App app = new CardGameApp();
+		
+	    boolean result = AppUtil.isDartsGameApp(app);
+	    boolean expected = false;
+	    
+	    assertEquals(expected, result);
+    }
+	
+	@Test
+	public void isDartsGameApp判定2() {
+		
+		App app = new DartsGameApp();
+		
+	    boolean result = AppUtil.isDartsGameApp(app);
+	    boolean expected = true;
+	    
+	    assertEquals(expected, result);
+    }
+	
+	@Test
+	public void isDartsGameApp判定3() {
+		
+		App app = new ClockApp();
+		
+	    boolean result = AppUtil.isDartsGameApp(app);
+	    boolean expected = false;
+	    
+	    assertEquals(expected, result);
+    }
+	
+	// isClockApp入力データパターン
+	
+	
+	@Test
+	public void isCloclApp判定1() {
+		
+		App app = new CardGameApp();
+		
+        boolean result = AppUtil.isCloclApp(app);
+        boolean expected = false;
+        
         assertEquals(expected, result);
     }
 	
 	@Test
-	public void isDartsGameApp判定() {
-        boolean result = AppUtil.isDartsGameApp(app);
-        boolean expected = false;
-        
-        if (app instanceof CardGameApp) {
-        	
-        	//appがCardGameAppだった時
-        	expected = false; // 想定される結果
-        	
-        }else if (app instanceof DartsGameApp) {
-        	
-        	//appがDartsGameAppだった時
-        	expected = true; // 想定される結果
-        	
-        }else {
-        	
-        	//appがClockAppだった時
-        	expected = false; // 想定される結果
-        }
-        
-
-        // 想定される結果と処理結果とを比較
-        assertEquals(expected, result);
-    }
-	
-	public void isCloclApp判定() {
+	public void isCloclApp判定2() {
+		
+		App app = new DartsGameApp();
+		
         boolean result = AppUtil.isCloclApp(app);
         boolean expected = false;
         
-        if (app instanceof CardGameApp) {
-        	
-        	//appがCardGameAppだった時
-        	expected = false; // 想定される結果
-        	
-        }else if (app instanceof DartsGameApp) {
-        	
-        	//appがDartsGameAppだった時
-        	expected = false; // 想定される結果
-        	
-        }else {
-        	
-        	//appがClockAppだった時
-        	expected = true; // 想定される結果
-        }
-        
-
-        // 想定される結果と処理結果とを比較
         assertEquals(expected, result);
     }
 	
+	@Test
+	public void isCloclApp判定3() {
+		
+		App app = new ClockApp();
+		
+        boolean result = AppUtil.isCloclApp(app);
+        boolean expected = true;
+        
+        assertEquals(expected, result);
+    }
+        
+    
+	//getAppName入力データパターン
 	
-	public void getAppName判定() {
+	@Test
+	public void getAppName判定1() {
+		
+		App app = new CardGameApp();
+		
         String result = AppUtil.getAppName(app);
-        String expected = "";
+        String expected = "ゲーム:カード";
         
-        if (app instanceof CardGameApp) {
-        	
-        	//appがCardGameAppだった時
-        	expected = "ゲーム:カード"; // 想定される結果
-        	
-        }else if (app instanceof DartsGameApp) {
-        	
-        	//appがDartsGameAppだった時
-        	expected = "ゲーム:ダーツ"; // 想定される結果
-        	
-        }else {
-        	
-        	//appがClockAppだった時
-        	expected = "時計"; // 想定される結果
-        }
-        
-
-        // 想定される結果と処理結果とを比較
         assertEquals(expected, result);
     }
+	
+	@Test
+	public void getAppName判定2() {
+		
+		App app = new DartsGameApp();
+		
+        String result = AppUtil.getAppName(app);
+        String expected = "ゲーム:ダーツ";
+        
+        assertEquals(expected, result);
+    }
+	
+	@Test
+	public void getAppName判定3() {
+		
+		App app = new ClockApp();
+		
+        String result = AppUtil.getAppName(app);
+        String expected = "時計";
+        
+        assertEquals(expected, result);
+    }
+	
+	
 }
+        
