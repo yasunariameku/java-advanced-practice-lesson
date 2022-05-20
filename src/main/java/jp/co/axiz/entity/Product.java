@@ -44,8 +44,10 @@ public class Product {
     }
 
     public void setProductName(String productName) {
-        this.productName =  productClassification;
+        this.productName = productName;
     }
+    
+    
 
     public int getPrice() {
         return price;
