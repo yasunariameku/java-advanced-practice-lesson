@@ -50,7 +50,7 @@ public class InputServlet extends HttpServlet {
         String productName = request.getParameter("productName");
         String priceStr = request.getParameter("price");
         
-        //System.out.println(productName);
+        System.out.println(productName);
 
         // 受け取った金額用の入力値を数値に変換
         // (戻り値がnullの場合は、未入力とみなす)

@@ -38,7 +38,7 @@ body {
     <input type="text" name="productName">
     <br>
     <label>金額：</label>
-    <input type="text" name="price">
+    <input type="number" name="price">
     <br>
     <button type="submit">登録</button>
   </form>
