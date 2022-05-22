@@ -47,19 +47,33 @@ public class UpdateServlet extends HttpServlet {
     	/*
          * 下記のコメントを参考に必要な処理を実装してください
          */
+    	
+    	request.setCharacterEncoding("UTF-8");
 
         // todo:入力値取得
+    	String bodyColor = request.getParameter("bodyColor");
+    	String speedStr = request.getParameter("speed");
 
 
         // todo:「最初に戻る」ボタンクリック時、「input.jsp」へ遷移
+    	String btn = request.getParameter("btnback");
+    	//System.out.println(btn);
+    	
+    	if (!(btn == null)) {
+            request.getRequestDispatcher("input.jsp").forward(request, response);
+    	}
 
 
         // todo:数値項目の入力値を数値に変換
+    	int speed = Integer.parseInt(speedStr);
+    	
 
 
         // セッションを取得
         HttpSession session = request.getSession();
-
+        Car car = (Car) session.getAttribute("latestCar");
+        
+      
         // セッションより変更履歴情報を取得
         // (警告が出るが、無視して良い)
         ArrayList<Car> historyList = (ArrayList<Car>) session.getAttribute("historyList");
@@ -73,18 +87,23 @@ public class UpdateServlet extends HttpServlet {
         // 最新の情報を使用して、新しくCarオブジェクトを作成する
         // (latestCarが保持している値を引数に指定する)
         // 現在はnullをセットしている
-        Car newCar = null;
+        Car newCar = new Car(car.getCarName(), car.getBodyColor(),car.getMaxSpeed(), car.getSpeed());
 
         // todo:セッターを使って、車体の色(入力値)をセット
+        newCar.setBodyColor(bodyColor);
 
 
         // todo:セッターを使って、現在の速度(入力値)をセット
+        int maxSpeed = (car.getMaxSpeed());
+        newCar.setSpeed(speed);
 
 
         // todo:historyListに、上で作成した変更後の情報を保持したオブジェクト(newCar)を追加
+        historyList.add(newCar);
 
 
         // todo:セッションに変更履歴情報(historyList)を登録
+        session.setAttribute("historyList", historyList);
 
 
         //セッションに最新情報を登録

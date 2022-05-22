@@ -93,11 +93,14 @@ body {
 
       -->
 
+	<c:forEach var="car" items="${historyList}">
 
       <tr>
-        <td>車体の色を表示</td>
-        <td>現在速度を表示</td>
+        <td>${car.getBodyColor()}</td>
+        <td>${car.getSpeed()}</td>
       </tr>
+      
+     </c:forEach>
 
   </table>
   </div>
@@ -113,7 +116,7 @@ body {
       <button type="submit" name="btn" value="update">変更</button> <br>
     </div>
     <div class="info_border0">
-      <button type="submit" name="btn" value="back">最初に戻る</button>
+      <button type="submit" name="btnback" value="back">最初に戻る</button>
     </div>
   </form>
 

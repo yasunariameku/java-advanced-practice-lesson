@@ -69,6 +69,12 @@ public class InputServlet extends HttpServlet {
         // todo:数値に変換
         // (数値項目[最高速度]の入力値の値を数値に変換)
     	int maxSpeed = Integer.parseInt(maxSpeedStr);
+    	if (maxSpeed < 0) {
+    		System.out.println("最高速度に、この(" + maxSpeed + ")をセットすることはできません");
+    		maxSpeed = 0;
+    		
+    		
+    	}
 
 
         // todo:Carオブジェクト作成
